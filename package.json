@@ -1,0 +1,105 @@
+{
+  "name": "ruankao-help",
+  "displayName": "ruankao-help",
+  "description": "软考刷题",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "publisher": "mengmeng",
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "set local token",
+      "properties": {
+        "ruankao-token": {
+          "type": "string",
+          "default": "",
+          "description": "Token for extension"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "ruankao-help.helloWorld",
+        "title": "Hello World"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "ruankao-help.helloWorld",
+        "key": "ctrl+f10",
+        "mac": "cmd+f10",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorFocus",
+          "command": "ruankao-help.helloWorld",
+          "group": "navigation"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "ruankao",
+          "title": "软考",
+          "icon": "images/ruankaoIcon.svg"
+        }
+      ]
+    },
+    "views": {
+      "ruankao": [
+        {
+          "id": "high",
+          "name": "高级"
+        },
+        {
+          "id": "middle",
+          "name": "中级"
+        },
+        {
+          "id": "low",
+          "name": "初级"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.88.0",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
+    "@vscode/test-cli": "^0.0.8",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.57.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}
