@@ -45,7 +45,7 @@ const extensionConfig = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'src/images/',
+              outputPath: 'images/',
             },
           },
         ],
