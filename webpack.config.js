@@ -37,8 +37,20 @@ const extensionConfig = {
             loader: 'ts-loader'
           }
         ]
-      }
-    ]
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'src/images/',
+            },
+          },
+        ],
+      },
+    ],
   },
   devtool: 'nosources-source-map',
   infrastructureLogging: {
