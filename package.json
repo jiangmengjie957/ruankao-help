@@ -9,7 +9,11 @@
   "categories": [
     "Other"
   ],
-  "publisher": "mengmeng",
+  "publisher": "shimengmenga",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jiangmengjie957/ruankao-help"
+  },
   "activationEvents": [
     "*"
   ],
